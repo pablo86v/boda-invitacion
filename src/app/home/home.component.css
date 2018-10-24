@@ -1,0 +1,64 @@
+.parallax{
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+#parallax1 { 
+/* The image used */
+    background-image: url("../../assets/img/img1.jpg");
+    height: 700px !important; 
+}
+
+#parallax2 { 
+/* The image used */
+    background-image: url("../../assets/img/pipis.jpg");    
+}
+
+#parallax3{
+    background-image: url("../../assets/img/footer.jpg");
+}
+
+
+h4{
+    /* font-family: 'Fanwood Text', serif; */
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 24px;
+    margin-top: 0;
+    padding: 0;
+
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+}
+
+h1{
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1.uppercase {
+    letter-spacing: 17px;
+    margin-right: -17px;
+}
+
+h2{
+    font-family: "Raleway:200", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+span,h1,h4,h2{
+    color: white;
+}
+
+.static-height{
+    height: 120px!important;
+}
+    
