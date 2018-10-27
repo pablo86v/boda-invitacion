@@ -1,5 +1,5 @@
 <form>
-  <!-- Container element -->
+  <!-- introducción -->
   <div class="parallax" id="parallax1">
     <div class="row">
       <div class="col-12 text-center">
@@ -12,22 +12,32 @@
           Te esperamos el <b>17 de noviembre</b> para que nos acompañes en este gran momento.</h4>
         <h1>Faltan <span id="miFecha"></span> días</h1>
       </div>
+    </div>
 
-      <div class="col-12 text-center mb-5">
-        <a href="#info" class="btn btn-outline-secondary mb-5">Ver información</a>
+    <div class="row" id="row-margin1">
+      <div class="col-6 text-center">
+        <!-- <button class="btn btn-sm btn-outline-dark d-block d-sm-none   my-btn-info ml-4" (click)="goTo('#info')">Ver detalles</button>
+        <button class="btn        btn-outline-dark d-none  d-sm-inline my-btn-info" (click)="goTo('#info')">Ver detalles</button> -->
+        <button class="btn        btn-outline-dark my-btn-info" (click)="goTo('#info')">Ver detalles</button>
+      </div>
+      <div class="col-6 text-center">
+        <!-- <button  class="btn btn-sm btn-success d-block d-sm-none mr-2" (click)="goTo('#parallax-confirmar')">Evento!</button>
+        <button  class="btn        btn-success d-none d-sm-inline" (click)="goTo('#parallax-confirmar')">Evento!</button> -->
+        <button  class="btn        btn-success" (click)="goTo('#parallax-confirmar')">Evento!</button>
       </div>
     </div>
+
   </div>
 
   <!-- informacion -->
-  <div class="row" id="info">
-    <div class="col-12 col-md-6 text-center mt-3 ">
+  <div class="row mt-3" id="info">
+    <div class="col-12 col-md-6 text-center mt-5 ">
       <div class="row">
         <div class="col">
           <img src="../assets/icon/rings.svg" width="80px" height="80px" alt="">
           <h5>Civil</h5>
-          <p class="m-4 static-height">La ceremonia es el viernes 16 de noviembre a las 9 hs en el registro civil de Longchamps. Sólo
-            tenés que tocar el botón para recibir todas las indicaciones.</p>
+          <p class="m-4">La ceremonia es el <b>viernes 16 de noviembre</b> en el registro civil de Longchamps. Sólo
+            tenés que tocar el botón para ver todos los detalles.</p>
         </div>
       </div>
       <div class="row">
@@ -36,15 +46,16 @@
         </div>
       </div>
     </div>
-    
-    <div class="col-12 col-md-6 text-center mt-3 ">
+
+    <div class="col-12 col-md-6 text-center mt-5 ">
       <div class="row">
         <div class="col">
+          <!-- d-block d-sm-none oculta el html para resoluciones mayores a 576px -->
+          <hr class="my mb-5 w-75 d-block d-sm-none">
           <img src="../assets/icon/cake.svg" width="80px" height="80px" alt="">
           <h5>Lunch</h5>
-          <p class="m-4 static-height">Nos juntamos a picar algo!. Es un momento importante para nosotros y nos gustaría que estés
-            ahí
-            ... ¡Te esperamos temprano! Sólo tenés que tocar el botón para recibir todas las indicaciones.</p>
+          <p class="m-4">El <b>Sábado 17</b> nos juntamos a picar algo... ¡Te esperamos temprano! Sólo tenés que
+            tocar el botón para ver toda la información.</p>
         </div>
       </div>
       <div class="row">
@@ -55,36 +66,28 @@
     </div>
   </div>
 
-
-
-  <!-- botones informacion -->
-  <!-- <div class="row">
-    <div class="col-6 text-center">
-      <button class="btn btn-outline-success mt-2">Ver indicaciones</button>
-    </div>
-    <div class="col-6 text-center">
-      <button class="btn btn-outline-success mt-2">Ver indicaciones</button>
-    </div>
-  </div> -->
-
-  <!-- regalos -->
-  <div class="parallax" id="parallax2">
+  <!-- confirmar -->
+  <div class="parallax" id="parallax-confirmar">
     <div class="row text-center m-5">
-      <div class="col-12 text-center mt-5">
-        <h1>¿Querés hacernos un regalo?</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <button type="button" class="btn btn-outline-secondary mb-5">Ver Datos bancarios</button>
+      <div class="col-12 text-center mt-3">
+        <h1><b>NO QUEREMOS REGALOS!</b></h1>
+        <h4>Lo que le pedimos a los que asistan, es que nos ayuden pagando su menú. El lugar del lunch nos fijó un
+          valor de <b>$300 por persona.</b>
+          Los novios cubrimos todo lo demás. En el lugar encontrarás un buzón para dejar sobres.</h4>
+          <button type="button" class="btn btn-success">Confirmar asistencia</button>
       </div>
     </div>
   </div>
 
-  <footer class="parallax" id="parallax3">
-    <div class="col-12 text-center mt-5">
-      <h1>TE ESPERAMOS!</h1>
-      <button type="button" class="btn btn-success btn-lg m-5">Confirmar asistencia</button>
+  <div class="col-12 text-center mt-5">
+    <h3>Te esperamos!</h3>
+  </div>
+
+
+  <footer id="footer">
+    <div class="col-12 text-center">
+      <h4 class="mt-5"><b>-Edita y Pablo-</b></h4>
+      <h4><b>17/11/2018</b></h4>
     </div>
   </footer>
 
