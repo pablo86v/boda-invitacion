@@ -3,6 +3,14 @@ agm-map {
   }
 
 .bkg-green{
-  background-color: rgb(161, 233, 209) !important;
+  /* background-color: rgb(161, 233, 209) !important; */
 }
 
+.under{
+   text-decoration: underline  solid;
+}
+
+
+.modal-body{
+  font-size: small;
+}

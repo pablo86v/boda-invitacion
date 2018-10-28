@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MostrarMapaComponent } from './mostrar-mapa/mostrar-mapa.component';
 import { AgmCoreModule } from '@agm/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const appRoutes: Routes = [
   { path: 'detalle/civil'  , component: MostrarMapaComponent , data :{tipo:'civil'} },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxSpinnerModule,
     AgmCoreModule.forRoot({
       // apiKey: 'AIzaSyBvMSADcWCPCYXSfZC2gkRFpKfOIMNDwX4',  
       apiKey: 'AIzaSyCp3OmUot6QK-FqlR7mrpn7mIZ-mvG0K7o',  //Nico

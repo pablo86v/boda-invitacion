@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MapsAPILoader } from '@agm/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { MapsAPILoader, GoogleMapsAPIWrapper } from '@agm/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Subscription } from 'rxjs';
 import { } from 'googlemaps';
-import { Router, Route, ActivatedRoute } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-mostrar-mapa',
@@ -11,41 +11,61 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
   styleUrls: ['./mostrar-mapa.component.css']
 })
 export class MostrarMapaComponent implements OnInit {
-
-  @Input() public coordenadasOrig: string;
-  @Input() public coordenadasDest: string;
-
-
-  titulo: string = 'Civil';
-  lat: number = -34.8605773;
-  lng: number = -58.3842011;
-  zoom: number = 14;
-
-  //  civil -34.8605773,-58.3842011
-
-  directionDisplay;
-  rutasAlternativas = [];
-  distancia;
-  tiempoDemora;
+  @ViewChild('AgmMap') map: any;
+  lat;
+  lng;
+  titulo;
+  parrafo;
   tipo;
+  latCivil: number = -34.8605773;
+  lngCivil: number = -58.3842011;
+  latLunch: number = -34.801359;
+  lngLunch: number = -58.390981;
+  zoom: number = 14;
+  idleMap: Subscription;
 
-  private distanciaEntrePuntos;
-  private puntoMarcar: string;
-  private markers = [];
-  private latLng;
+  // civil -34.8605773,-58.3842011
+  // lunch -34.801359, -58.390981
+
 
   constructor(public mapsAPILoader: MapsAPILoader,
-    private route: ActivatedRoute,
-  ) {
-  }
+              private route: ActivatedRoute,
+              private spinner : NgxSpinnerService){}
 
   ngOnInit() {
+    this.spinner.show();
     this.route.data.subscribe(
-      param =>{
-        console.log(param)
-      }
-    )
+      param => {
+                this.tipo = param.tipo; 
+                this.setCards(this.tipo);
+               }
+    );
 
+    this.idleMap = (this.map._mapsWrapper as GoogleMapsAPIWrapper).subscribeToMapEvent('idle').subscribe(
+      () => {
+        setTimeout(() => { this.spinner.hide(); }, 2000);
+      }
+    );
   }
+
+  
+  setCards(tipo){
+    if(tipo == "civil"){
+      this.tipo = "civil";
+      this.titulo = "Civil";
+      this.parrafo = "Viernes 16/11 a las 9:00 hs. Emilio Burgward 991, Longchamps."
+      this.lat = this.latCivil;
+      this.lng = this.lngCivil;
+
+    }else{
+      this.titulo = "Mini evento!";
+      this.parrafo = "El lugar se llama OMA CASA DE TÉ. Te esperamos el Sábado 17/11 a las 13:00 hs en Somellera 848, Adrogué. No hay código de vestimenta oficial! pero elegante sport va bien :)";
+      this.lat = this.latLunch;
+      this.lng = this.lngLunch;
+    }
+  }
+
+
+
 
 }

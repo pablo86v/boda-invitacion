@@ -1,13 +1,43 @@
+<div>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" #AgmMap>
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 
+   <!-- ******************  CARD  ************************* -->
+  <div class="card m-4">
+    <div class="card-body">
+      <h5 class="card-title">{{titulo}}</h5>
+      <p class="card-text">{{parrafo}}</p>
+      <button type="button" class="btn btn-link under" data-toggle="modal" data-target="#modalMenu"  *ngIf="tipo!='civil'">Ver menú</button>
+      <hr>
+      <a href="#" class="btn btn-primary">Volver</a>
+    </div>
+  </div>
+</div>
 
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
-
-<div class="card m-4">
-  <div class="card-body">
-    <h5 class="card-title">{{titulo}}</h5>
-    <p class="card-text">Viernes 16/11 a las 9:00 hs. Emilio Burgward 991, Longchamps.</p>
-    <a href="#" class="btn btn-primary">Volver</a>
+<!-- Modal menú de OMA -->
+<div class="modal fade m-2" id="modalMenu" tabindex="-1" role="dialog" aria-labelledby="modalMenuTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h6>Lunch</h6>
+        <p><img src="../../assets/icon/croissant.svg" width="30px" height="30px" alt=""> Medialunas de jamón y queso.</p>
+        <p><img src="../../assets/icon/sandwich.svg" width="30px" height="30px" alt=""> Sandwich de pollo y ciboulette.</p>
+        <p><img src="../../assets/icon/pizza2.svg" width="30px" height="30px" alt=""> Pizzetas</p>
+        <p><img src="../../assets/icon/pastry.svg" width="30px" height="30px" alt=""> Empanadas</p>
+        <p><img src="../../assets/icon/lemonade.svg" width="30px" height="30px" alt=""> Limonadas, gaseosas y algunos
+          aperitivos.</p>
+        <hr class="w-50 text-center">
+        <h6>Para el final, una meriendita...</h6>
+        <p><img src="../../assets/icon/toast.svg" width="30px" height="30px" alt=""> Tostadas de campo,manteca y
+          mermeladas caseras.</p>
+        <p><img src="../../assets/icon/brownie.svg" width="30px" height="30px" alt=""> Brownies</p>
+        <p><img src="../../assets/icon/piece-of-cake.svg" width="30px" height="30px" alt=""> Cuadraditos de limón</p>
+        <p><img src="../../assets/icon/coffee.svg" width="30px" height="30px" alt=""> Infusiones: café,té o mate!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
   </div>
 </div>
