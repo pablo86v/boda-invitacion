@@ -27,42 +27,14 @@
     height: 150px!important; 
  }
  
- #row-margin1{
-     margin-top: 150px;
- }
-
-
-
-h4{
-    /* font-family: 'Fanwood Text', serif; */
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 24px;
-    margin-top: 0;
-    padding: 0;
-
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-
-}
-
-h1{
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+#row-margin1{
+    margin-top: 150px;
 }
 
 h1.uppercase {
     letter-spacing: 17px;
     margin-right: -17px;
 }
-
-h2{
-    font-family: "Raleway:200", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 
 span,h1,h4,h2{
     color: white;
@@ -72,12 +44,8 @@ span,h1,h4,h2{
     height: 120px!important;
 }
     
-
 .my-btn-info{
  color:white    ;
  /* text-decoration: underline  solid; */
 }
 
-.btn{
-    border-radius: 0px !important;
-}

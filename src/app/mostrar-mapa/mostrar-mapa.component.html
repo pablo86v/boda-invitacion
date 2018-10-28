@@ -1,3 +1,13 @@
-<p>
-  mostrar-mapa works!
-</p>
+
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<div class="card m-4">
+  <div class="card-body">
+    <h5 class="card-title">{{titulo}}</h5>
+    <p class="card-text">Viernes 16/11 a las 9:00 hs. Emilio Burgward 991, Longchamps.</p>
+    <a href="#" class="btn btn-primary">Volver</a>
+  </div>
+</div>

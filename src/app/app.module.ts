@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MostrarMapaComponent } from './mostrar-mapa/mostrar-mapa.component';
-
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes: Routes = [
-  { path: 'home'    , component: HomeComponent },
-  { path: '**'      , component: HomeComponent }
+  { path: 'detalle/civil'  , component: MostrarMapaComponent , data :{tipo:'civil'} },
+  { path: 'detalle/evento' , component: MostrarMapaComponent , data :{tipo:'evento'}},
+  { path: 'home'           , component: HomeComponent },
+  { path: '**'             , component: HomeComponent }
 ];
 
 
@@ -27,6 +29,11 @@ const appRoutes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      // apiKey: 'AIzaSyBvMSADcWCPCYXSfZC2gkRFpKfOIMNDwX4',  
+      apiKey: 'AIzaSyCp3OmUot6QK-FqlR7mrpn7mIZ-mvG0K7o',  //Nico
+      libraries: ["places"]
+      }),
     RouterModule.forRoot(appRoutes,{'useHash': true})      
   ],
   providers: [
