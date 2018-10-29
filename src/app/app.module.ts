@@ -11,10 +11,10 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 const appRoutes: Routes = [
-  { path: 'detalle/civil'  , component: MostrarMapaComponent , data :{tipo:'civil'} },
-  { path: 'detalle/evento' , component: MostrarMapaComponent , data :{tipo:'evento'}},
-  { path: 'home'           , component: HomeComponent },
-  { path: '**'             , component: HomeComponent }
+  { path: 'detalle/:tipo'      , component: MostrarMapaComponent },
+  { path: 'home/:pageLocation' , component: HomeComponent },
+  { path: 'home'               , component: HomeComponent },
+  { path: '**'                 , component: HomeComponent }
 ];
 
 

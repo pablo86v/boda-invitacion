@@ -16,14 +16,10 @@
 
     <div class="row" id="row-margin1">
       <div class="col-6 text-center">
-        <!-- <button class="btn btn-sm btn-outline-dark d-block d-sm-none   my-btn-info ml-4" (click)="goTo('#info')">Ver detalles</button>
-        <button class="btn        btn-outline-dark d-none  d-sm-inline my-btn-info" (click)="goTo('#info')">Ver detalles</button> -->
-        <button class="btn        btn-outline-dark my-btn-info" (click)="goTo('#info')">Ver detalles</button>
+        <a href="#info" class="btn btn-outline-dark my-btn-info">Ver detalles</a>
       </div>
-      <div class="col-6 text-center">
-        <!-- <button  class="btn btn-sm btn-success d-block d-sm-none mr-2" (click)="goTo('#parallax-confirmar')">Evento!</button>
-        <button  class="btn        btn-success d-none d-sm-inline" (click)="goTo('#parallax-confirmar')">Evento!</button> -->
-        <button  class="btn        btn-success" (click)="goTo('#parallax-confirmar')">Evento!</button>
+      <div class="col-6 text-center">  
+        <a  href="#parallax-confirmar" class="btn btn-success" >Evento!</a>
       </div>
     </div>
 
@@ -42,7 +38,8 @@
       </div>
       <div class="row">
         <div class="col align-bottom  ">
-          <button class="btn btn-outline-success align-bottom" routerLink="/detalle/civil">Ver indicaciones</button>
+          <!-- <button class="btn btn-outline-success align-bottom" routerLink="/detalle/civil">Ver indicaciones</button> -->
+          <button class="btn btn-outline-success align-bottom" [routerLink]="['/detalle','civil']">Ver indicaciones</button>
         </div>
       </div>
     </div>
@@ -60,7 +57,7 @@
       </div>
       <div class="row">
         <div class="col  ">
-          <button class="btn btn-outline-success"  routerLink="/detalle/evento">Ver indicaciones</button>
+          <button class="btn btn-outline-success"  [routerLink]="['/detalle','evento']">Ver indicaciones</button>
         </div>
       </div>
     </div>
@@ -71,10 +68,11 @@
     <div class="row text-center m-5">
       <div class="col-12 text-center mt-3">
         <h1><b>NO QUEREMOS REGALOS!</b></h1>
-        <h4>Lo que le pedimos a los que asistan, es que nos ayuden pagando su menú. El lugar del lunch nos fijó un
+        <h4>Lo que le pedimos a los que asistan el sabádo, es que nos ayuden pagando su menú. El lugar del lunch nos fijó un
           valor de <b>$300 por persona.</b>
-          Los novios cubrimos todo lo demás. En el lugar encontrarás un buzón para dejar sobres.</h4>
-          <button type="button" class="btn btn-success">Confirmar asistencia</button>
+          Los novios cubrimos todo lo demás. En el lugar habrá un buzón para dejar sobres.</h4>
+          <!-- <button type="button" class="btn btn-success" (click)="confirmarAsistencia()">Confirmar asistencia</button> -->
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Confirmar asistencia</button>
       </div>
     </div>
   </div>
@@ -87,8 +85,42 @@
   <footer id="footer">
     <div class="col-12 text-center">
       <h4 class="mt-5"><b>-Edita y Pablo-</b></h4>
-      <h4><b>17/11/2018</b></h4>
-    </div>
+      <h4><b><a (click)="easterEgg()">17</a>/11/2018</b></h4>
+    </div> 
   </footer>
 
 </form>
+
+<!-- **************************************************************************************************************
+************************************************************************************************************** -->
+
+
+<!-- MODAL INGRESO INVITADO -->
+<div class="modal fade m-4" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Confirmar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                  <label for="nombre" class="col-form-label">Nombre:</label>
+                  <input type="text" class="form-control"  [(ngModel)] ="nombre" name="nombre">
+              </div>
+              <div class="form-group">
+                  <label for="apellido" class="col-form-label">Apellido:</label>
+                  <input type="text" class="form-control" [(ngModel)] ="apellido" name="apellido">
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link mr-3" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="enviar()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,48 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
+import {  map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpDataService {
 
-  public apiURL= "hahaha" ;
-  private headers: HttpHeaders;
+  public apiURL= "http://pablovalenzuela.esy.es/api/invitados" ;
+  public headers: Headers;
 
-  constructor(public http : HttpClient) {
-    this.headers = new HttpHeaders();
+  constructor(public http : Http) {
+    this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
    }
 
 
-  insert(apiName,obj):  Observable<any> {
-    return this.http.post<boolean>(this.apiURL + apiName + 'insertar',obj, {headers: this.headers})
+   getAll() : Observable<any> {
+    return this.http.get(this.apiURL + "/traerTodos")
     .pipe(
-      tap(data => this.log(apiName + "::insert()")),
-      catchError(this.handleError(apiName + '::insert()',[]))
+      map(data => data.json())
     );
   }
 
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
- 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
- 
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
- 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+
+  insert(obj):  Observable<any> {
+    return this.http.post(this.apiURL + "/insertar", obj , {headers: this.headers})
+    .pipe(
+      // map(data => data.json())
+      map(data => console.log("ok"))
+    );
   }
+
  
-  private log(message: string) {
-    console.log(message);
-  }
 
 
   

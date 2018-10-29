@@ -38,12 +38,18 @@
     padding: 0;
 
     display: block;
-    margin-block-start: 1.33em;
+    /* margin-block-start: 1.33em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-end: 0px; */
   }
 
   .btn{
     border-radius: 0px !important;
+  }
+
+
+  .swal-modal {
+   margin: 30px;
+   width: 75%;
   }

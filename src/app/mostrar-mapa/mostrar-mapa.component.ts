@@ -33,39 +33,36 @@ export class MostrarMapaComponent implements OnInit {
               private spinner : NgxSpinnerService){}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.spinner.show();
-    this.route.data.subscribe(
-      param => {
-                this.tipo = param.tipo; 
-                this.setCards(this.tipo);
-               }
-    );
+ 
+    this.route.params.subscribe(params => {
+      this.tipo = params.tipo; 
+      console.log("tipo:"+this.tipo)
+      this.setCards(this.tipo); 
+    });
 
     this.idleMap = (this.map._mapsWrapper as GoogleMapsAPIWrapper).subscribeToMapEvent('idle').subscribe(
       () => {
         setTimeout(() => { this.spinner.hide(); }, 2000);
       }
     );
-  }
+  } 
 
   
   setCards(tipo){
     if(tipo == "civil"){
       this.tipo = "civil";
-      this.titulo = "Civil";
-      this.parrafo = "Viernes 16/11 a las 9:00 hs. Emilio Burgward 991, Longchamps."
       this.lat = this.latCivil;
       this.lng = this.lngCivil;
 
     }else{
-      this.titulo = "Mini evento!";
-      this.parrafo = "El lugar se llama OMA CASA DE TÉ. Te esperamos el Sábado 17/11 a las 13:00 hs en Somellera 848, Adrogué. No hay código de vestimenta oficial! pero elegante sport va bien :)";
+      
+      this.parrafo = "";
       this.lat = this.latLunch;
       this.lng = this.lngLunch;
     }
   }
-
-
 
 
 }

@@ -3,16 +3,29 @@
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
 
-   <!-- ******************  CARD  ************************* -->
-  <div class="card m-4">
+   <!-- ******************  CARD  CIVIL************************* -->
+  <div class="card m-4" *ngIf="tipo=='civil'">
     <div class="card-body">
-      <h5 class="card-title">{{titulo}}</h5>
-      <p class="card-text">{{parrafo}}</p>
-      <button type="button" class="btn btn-link under" data-toggle="modal" data-target="#modalMenu"  *ngIf="tipo!='civil'">Ver menú</button>
+      <h5 class="card-title">Civil</h5>
+      <p class="card-text">Viernes 16/11 a las 9:00 hs. Emilio Burgward 991, Longchamps.</p>
       <hr>
-      <a href="#" class="btn btn-primary">Volver</a>
+      <a routerLink="/home/info" class="btn btn-secondary">Volver</a>
     </div>
   </div>
+
+
+   <!-- ******************  CARD  LUNCH************************* -->
+<div class="card m-4" *ngIf="tipo!='civil'">
+  <div class="card-body">
+    <h5 class="card-title">Mini evento</h5>
+    <p class="card-text">El lugar se llama OMA CASA DE TÉ. Te esperamos el Sábado 17/11 a las 13:00 hs hasta las 16 hs en Somellera 848, Adrogué. No hay código de vestimenta oficial! pero elegante sport va bien :)</p>
+    <p><b>Cerramos la lista el 09/11</b></p>
+    <button type="button" class="btn btn-link under" data-toggle="modal" data-target="#modalMenu">Ver menú</button>
+    <hr>
+    <a routerLink="/home/info" class="btn btn-secondary">Volver</a>
+    <a routerLink="/home/parallax-confirmar"  class="btn btn-primary ml-5">Asistencia</a>
+  </div>
+</div>
 </div>
 
 <!-- Modal menú de OMA -->
