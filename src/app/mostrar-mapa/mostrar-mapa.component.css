@@ -2,9 +2,7 @@ agm-map {
     height: 400px;
   }
 
-.bkg-green{
-  /* background-color: rgb(161, 233, 209) !important; */
-}
+ 
 
 .under{
    text-decoration: underline  solid;
@@ -13,4 +11,9 @@ agm-map {
 
 .modal-body{
   font-size: small;
+}
+
+.vl {
+  border-left: 1px groove;
+  height: 30px;
 }

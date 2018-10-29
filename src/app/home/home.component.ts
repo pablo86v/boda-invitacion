@@ -57,10 +57,14 @@ export class HomeComponent implements OnInit {
   enviar(){
     
     let obj = { nombre : this.nombre, apellido : this.apellido}
-    console.log(obj)
-    this.httpServ.insert(obj).subscribe(
-      data=> swal("Genial!", "Gracias por confirmar...nos vemos el sábado!", "success")
-    )
+    if(this.nombre && this.apellido){
+      this.httpServ.insert(obj).subscribe(
+        data=> swal("Genial!", "Gracias por confirmar...nos vemos el sábado!", "success")
+      )
+    }else{
+      swal("Error!","Datos errónes, por favor revisá lo que ingresaste.","error")
+    }
+    
   }
   
   
